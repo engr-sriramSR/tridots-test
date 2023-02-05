@@ -1,0 +1,62 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-size: 20px;
+  }
+  
+  td, th, tr {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    background-color: #dddddd;
+  }
+
+  a{
+    text-decoration: none;
+    flex-grow: 1;
+  }
+
+  .nav{
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    flex-grow: 1;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 20px;
+  }
+
+  button{
+    width: 25px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  input{
+    background-color: #dddddd;
+    text-align: center;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    line-height: 20px;
+    font-size: 20px;
+    pointer-events: none;
+    border: none;
+  }
+
+  .edit input{
+    background-color: white;
+    pointer-events: auto;
+  }
+
+  .edit-on{
+    display: auto;
+  }
+
+  .edit-off{
+    display: none;
+  }

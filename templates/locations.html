@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script defer src="{{url_for('static', filename='js/locations.js')}}"></script>
+<title>Locations</title>
+{% endblock %}
+
+
+{% block body %}
+<div id="locations">
+  <table id="locations-table">
+      <button onclick="addLocations()"><i class="fa-solid fa-plus"></i></button>
+      <tbody id="locations-table-body">
+          <tr>
+              <th>Location id</th>
+              <th>Location Name</th>
+              <th>Product id</th>
+              <th>Available Quantity</th>
+              <th>Actions</th>
+          </tr>
+          {% for location in locations_details %}
+              <tr id="{{location.location_id}}"> 
+                  <td id="{{location.location_id}}-id">{{location.location_id}}</td>
+                  <td><input id="{{location.location_id}}-name" value="{{location.location_name}}"/></td>
+                  <td id="{{location.location_id}}-product-id">{{location.product_id}}</td>
+                  <td><input id="{{location.location_id}}-available-quantity" value="{{location.available_quantity}}"/></td>
+                  <td>
+                      <button id="edit-{{location.location_id}}" class="edit-on" onclick="editLocation(this.id)"><i class="fa-solid fa-pencil"></i></button>
+                      <button id="save-{{location.location_id}}"
+                      class="edit-off" onclick="saveLocation(this.id)"><i class="fa-solid fa-floppy-disk"></i></button>
+                      <button id="cancel-{{location.location_id}}" class="edit-off" onclick="cancel(this.id)"><i class="fa-solid fa-xmark"></i></button>
+                  </td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endblock %}

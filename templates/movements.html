@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script defer src="../static/js/movements.js"></script>
+<title>Movements</title>
+{% endblock %}
+
+
+{% block body %}
+<div id="movements">
+    <table id="movements-table">
+        <button onclick="addMovements()"><i class="fa-solid fa-plus"></i></button>
+        <tbody id="movements-table-body">
+            <tr>
+                <th>Movement_id</th>
+                <th>Time</th>
+                <th>From location</th>
+                <th>To location</th>
+                <th>Product Id</th> 
+                <th>Quantity Moved</th>
+            </tr>
+            {% for movement in movements_details %}
+                <tr id="{{movement.movement_id}}"> 
+                    <td id="{{movement.movement_id}}-id">{{movement.movement_id}}</td>
+                    <td id="{{movement.movement_id}}-timestamp">{{movement.timestamp}}</td>
+                    <td id="{{movement.movement_id}}-from-location">{{movement.from_location}}</td>
+                    <td id="{{movement.movement_id}}-to-location">{{movement.to_location}}</td>
+                    <td id="{{movement.movement_id}}-product-id">{{movement.product_id}}</td>
+                    <td id="{{movement.movement_id}}-moved-quantity">{{movement.moved_quantity}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Warehouse</title>
+{% endblock %}
+
+
+{% block body %}
+<div id="warehouse">
+  <table id="warehouse-table">
+      <tbody id="warehouse-table-body">
+          <tr>
+            <th>Product</th>
+            <th>Warehouse</th>
+            <th>Quantity</th>
+          </tr>
+          {% for warehouse in warehouse_details %}
+              <tr>
+                <td>{{warehouse.product_name}}</td>
+                <td>{{warehouse.warehouse}}</td>
+                <td>{{warehouse.quantity}}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endblock %}

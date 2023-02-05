@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script defer src="{{url_for('static', filename='js/products.js')}}"></script>
+<title>Products</title>
+{% endblock %}
+
+
+{% block body %}
+<div id="products">
+    <table id="products-table">
+        <button onclick="addProducts()"><i class="fa-solid fa-plus"></i></button>
+        <tbody id="products-table-body">
+            <tr>
+                <th>Product id</th>
+                <th>Product Name</th>
+                <th>Actions</th>
+            </tr>
+            {% for product in products_details %}
+                <tr id="{{product.product_id}}"> 
+                    <td id="{{product.product_id}}-id">{{product.product_id}}</td>
+                    <td><input id="{{product.product_id}}-name" value="{{product.product_name}}"/></td>
+                    <td>
+                        <button id="edit-{{product.product_id}}" class="edit-on" onclick="editProduct(this.id)"><i class="fa-solid fa-pencil"></i></button>
+                        <button id="save-{{product.product_id}}"
+                        class="edit-off" onclick="saveProduct(this.id)"><i class="fa-solid fa-floppy-disk"></i></button>
+                        <button id="cancel-{{product.product_id}}" class="edit-off" onclick="cancel(this.id)"><i class="fa-solid fa-xmark"></i></button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
